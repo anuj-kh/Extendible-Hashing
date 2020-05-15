@@ -10,8 +10,19 @@ package module2;
  */
 public class HashValue {
     
-    public String[] hashFunction(int[] key,int mod)
+    public int[] splittingKeys(String keys,int mod)
     {
+        String s[] = keys.split(" "); 
+        int out[] = new int[s.length]; 
+        for(int i = 0 ; i < s.length ; i++) 
+             out[i] = Integer.parseInt(s[i]);
+        return out;
+    }
+    
+    public String[] hashFunction(String keys,int mod)
+    {
+        int[] key=splittingKeys(keys,mod);
+        
         String[] hash_value = new String[key.length];
         for(int i=0;i<key.length;i++)
         {
@@ -19,14 +30,5 @@ public class HashValue {
             hash_value[i]=Integer.toString(k_mod,2);
         }    
         return hash_value;
-    }
-    public String[] splittingKeys(String keys,int mod)
-    {
-        String s[] = keys.split(" "); 
-        int out[] = new int[s.length]; 
-        for(int i = 0 ; i < s.length ; i++) 
-             out[i] = Integer.parseInt(s[i]);
-        String[] hashValue=hashFunction(out,mod);
-        return hashValue;
     }
 }

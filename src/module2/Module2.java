@@ -19,16 +19,20 @@ public class Module2 {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter the keys:");
         String keys = myObj.nextLine();
-        System.out.println("Enter mod value:");
+        System.out.println("Enter mod value , GD , LD, bfr :");
         int mod = myObj.nextInt();
+        int GD = myObj.nextInt();
+        int LD = myObj.nextInt();
+        int bfr = myObj.nextInt();
+        
         HashValue h=new HashValue();
-        String ans[]=h.splittingKeys(keys,mod);
+        String ans[]=h.hashFunction(keys,mod);
         System.out.println("hash Values:");
         for(int i = 0 ; i < ans.length ; i++) 
         {
             System.out.print(ans[i]+" ");
         }
-        System.out.print("");
+        System.out.println("");  
     }
     
     
