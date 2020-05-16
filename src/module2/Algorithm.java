@@ -10,16 +10,31 @@ import java.util.*;
  * @author Anuj Kharbanda
  */
 public class Algorithm {
-    public void buckets(int[] keys,String[] hash_value,int GD,int LD,int bfr)
+    
+    ArrayList<Bucket> buckets = new ArrayList<Bucket>();
+    int no_of_buckets;
+    String label="";
+    int LD;
+    public Algorithm(int LD)
     {
-        ArrayList<ArrayList<Object>> bucket = new ArrayList<ArrayList<Object>>();
+        this.LD=LD;
+        no_of_buckets=(int)(Math.pow(2,LD));
         
-        
+        for(int i=0;i<no_of_buckets;i++)
+        {
+            label="";
+            label=Integer.toString(i,2);
+            int len=label.length();
+            for(int j=0;j<LD-len;j++)
+            {
+                label="0"+label;
+            }
+            Bucket b1=new Bucket(label,new ArrayList<Integer>());
+            buckets.add(b1);
+        }
     }
-    public void directory(int[] keys,String[] hash_value,int GD,int LD,int bfr)
-    {
-        
-    }
+    
+
     public static void main(String args[])
     {
         

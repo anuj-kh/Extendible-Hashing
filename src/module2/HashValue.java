@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package module2;
+import javafx.util.*;
 /**
  *
  * @author Anuj Kharbanda
@@ -19,7 +20,7 @@ public class HashValue {
         return out;
     }
     
-    public String[] hashFunction(String keys,int mod)
+    public Pair<int[], String[]> hashFunction(String keys,int mod)
     {
         int[] key=splittingKeys(keys,mod);
         
@@ -29,6 +30,6 @@ public class HashValue {
             int k_mod=key[i]%mod;
             hash_value[i]=Integer.toString(k_mod,2);
         }    
-        return hash_value;
+        return new Pair<int[], String[]>(key,hash_value); 
     }
 }

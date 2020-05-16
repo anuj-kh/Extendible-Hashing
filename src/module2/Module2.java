@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package module2;
-import java.util.Scanner;
+import java.util.*;
+import javafx.util.*;
 /**
  *
  * @author Anuj Kharbanda
@@ -26,13 +27,20 @@ public class Module2 {
         int bfr = myObj.nextInt();
         
         HashValue h=new HashValue();
-        String ans[]=h.hashFunction(keys,mod);
-        System.out.println("hash Values:");
-        for(int i = 0 ; i < ans.length ; i++) 
+        Pair<int[], String[]> ans=h.hashFunction(keys,mod);
+        int[] key=ans.getKey();
+        String[] hashValue=ans.getValue();
+        
+        System.out.println("keys and corresponding hash Values:");
+        for(int i = 0 ; i < hashValue.length ; i++) 
         {
-            System.out.print(ans[i]+" ");
+            System.out.println(key[i]+" "+hashValue[i]);
         }
-        System.out.println("");  
+        
+        Algorithm algo=new Algorithm(LD);
+        
+        Initial ii=new Initial(LD,bfr,key,hashValue,algo);
+        
     }
     
     
