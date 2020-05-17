@@ -15,6 +15,7 @@ public class Algorithm {
     int no_of_buckets;
     String label="";
     int LD;
+    int flag=-1;
     public Algorithm(int LD)
     {
         this.LD=LD;
@@ -25,19 +26,15 @@ public class Algorithm {
             label="";
             label=Integer.toString(i,2);
             int len=label.length();
-            for(int j=0;j<LD-len;j++)
-            {
-                label="0"+label;
-            }
-            Bucket b1=new Bucket(label,new ArrayList<Integer>());
+            label=String.format("%1$" + (LD-len+1) + "s", label).replace(' ', '0');   
+//            for(int j=0;j<LD-len;j++)
+//            {
+//                label="0"+label;
+//            }
+            Bucket b1=new Bucket(label,new ArrayList<Integer>(),new ArrayList<String>(),LD);
             buckets.add(b1);
         }
     }
     
-
-    public static void main(String args[])
-    {
-        
-    }
     
 }
