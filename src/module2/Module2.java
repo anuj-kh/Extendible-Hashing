@@ -48,7 +48,7 @@ public class Module2 {
         }
         System.out.println();
         
-        Algorithm algo=new Algorithm(LD);
+        Initialization algo=new Initialization(LD);
         
         System.out.println("Initial Directory:");
         for(int i=0;i<(int)(Math.pow(2,GD));i++)
@@ -57,7 +57,8 @@ public class Module2 {
             label=String.format("%1$" + (GD) + "s", label).replace(' ', '0');
             System.out.print(label+"\t");
         }
-        System.out.println("\n\nInitial Buckets:");
+        System.out.println("\nGD="+GD);
+        System.out.println("\nInitial Buckets:");
         Iterator itr=algo.buckets.iterator();  
         while(itr.hasNext()){  
             Bucket bt=(Bucket)itr.next();  
@@ -65,17 +66,8 @@ public class Module2 {
         }
         System.out.println();
         
-//        Initial ii=new Initial(LD,bfr,key,hashValue,algo);
-            Alg ii=new Alg(LD,GD,bfr,key,hashValue,algo);
+        new Algorithm(LD,GD,bfr,key,hashValue,algo);
         
-//        Splitting sp=new Splitting(LD,bfr,key,hashValue,algo);
-        
-//        System.out.println();
-//        Iterator itr=algo.buckets.iterator();  
-//            while(itr.hasNext()){  
-//                Bucket bt=(Bucket)itr.next();  
-//                System.out.println(bt.label+" "+bt.bucket);  
-//            }
     }
     
     
