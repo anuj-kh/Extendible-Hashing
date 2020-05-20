@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package module2;
+
 import javafx.util.*;
-/**
- *
- * @author Anuj Kharbanda
- */
+
+//hash function implementation - currently using Kmod M
+//K - data item
+//M - user input
+
 public class HashValue {
     
     public int[] splittingKeys(String keys,int mod)
     {
+        keys = keys.replaceAll("[^-?0-9]+", " ");
         String s[] = keys.split(" "); 
         int out[] = new int[s.length]; 
         for(int i = 0 ; i < s.length ; i++) 
